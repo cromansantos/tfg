@@ -30,4 +30,14 @@ object Utilities {
       360 + brng
     }
   }
+
+  def calculateRange(distance: Double) = {
+    distance match {
+      case x if x <= 0.2 => new Rango(0, 0.2)
+      case x if x > 0.2 && x <= 3.5 => new Rango(0.2, 3.5)
+      case x if x > 3.5 && x <= 7 => new Rango(3.5, 7)
+      case x if x > 7 && x <= 17 => new Rango(7, 17)
+      case _ => new Rango(17, Double.MaxValue)
+    }
+  }
 }
